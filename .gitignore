@@ -1,0 +1,10 @@
+# /public/mock
+/zerg/.idea
+/zerg/.vscode
+/zerg/logs
+/zerg/runtime
+/zerg/vendor
+
+# Editor directories and files
+*.log
+.env
