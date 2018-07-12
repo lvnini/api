@@ -27,5 +27,6 @@ return [
     'max_files'   => 0,
     // 是否关闭日志写入
     'close'       => false,
+    //打开Json样式日志
     'json'	=>	true,
 ];
