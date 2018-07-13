@@ -14,7 +14,7 @@
 //});
 //Route::get('hello/:name', 'index/hello');
 
-Route::get('api/v1/banner/:id', 'api/v1.banner/getBanner');
+Route::get('api/:version/banner/:id', 'api/:version.banner/getBanner');
 
 return [
 
