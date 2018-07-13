@@ -16,6 +16,10 @@
 
 Route::get('api/:version/banner/:id', 'api/:version.banner/getBanner');
 
+Route::get('api/:version/theme', 'api/:version.Theme/getSimpleList');
+
+Route::get('api/:version/theme/:id', 'api/:version.Theme/getComplexOne');
+
 return [
 
 ];
