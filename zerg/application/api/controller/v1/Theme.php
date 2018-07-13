@@ -19,7 +19,7 @@ class Theme
         (new IDCollection())->goCheck();
         $ids = explode(',',$ids);
         $result = ThemeModel::with('topicImg,headImg')->select($ids);
-        if (!$result){
+        if ($result->isEmpty()){
             throw new ThemeException();
         }
         return $result;
