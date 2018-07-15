@@ -36,6 +36,17 @@ class BaseValidate extends Validate
         }
     }
 
+    protected function isMobile($value)
+    {
+        $rule = '^1(3|4|5|7|8)[0-9]\d{8}$^';
+        $result = preg_match($rule, $value);
+        if ($result){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     protected function isNotEmpty($value, $rule = '', $date = '', $field = '')
     {
         if (empty($value)){
@@ -43,6 +54,20 @@ class BaseValidate extends Validate
         }else{
             return true;
         }
+    }
+
+    public function getDataByRule($arrays){
+        if (array_key_exists('user_id',$arrays) | array_key_exists('uid',$arrays)){
+            //不允许包含user_id与uid, 防止恶意覆盖
+            throw new ParameterException([
+               'msg' => '参数中包含非法的参数名user_id或者uid'
+            ]);
+        }
+        $newArray = [];
+        foreach ($this->rule as $key => $value){
+            $newArray[$key] = $arrays[$key];
+        }
+        return $newArray;
     }
 
 }
