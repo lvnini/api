@@ -27,7 +27,7 @@ class BaseValidate extends Validate
         }
     }
 
-    protected function isPostiveInteger($value, $rule = '', $date = '', $field = '')
+    protected function isPositiveInteger($value, $rule = '', $date = '', $field = '')
     {
         if (is_numeric($value) && is_int($value + 0) && ($value + 0) > 0) {
             return true;

@@ -20,7 +20,7 @@ Route::get('api/:version/theme', 'api/:version.Theme/getSimpleList');
 Route::get('api/:version/theme/:id', 'api/:version.Theme/getComplexOne');
 
 Route::group('api/:version/product',function (){
-    Route::get('/recent', 'api/:version.Product/getRecengt');
+    Route::get('/recent', 'api/:version.Product/getRecent');
     Route::get('/by_category', 'api/:version.Product/getAllInCategory');
     Route::get('/:id', 'api/:version.Product/getOne',[],['id'=>'\d+']);
 });
@@ -30,6 +30,8 @@ Route::get('api/:version/category/all', 'api/:version.Category/getAllCategories'
 Route::post('api/:version/token/user', 'api/:version.Token/getToken');
 
 Route::post('api/:version/address', 'api/:version.Address/createOrUpdateAddress');
+
+Route::post('api/:version/order', 'api/:version.Order/placeOrder');
 
 
 return [

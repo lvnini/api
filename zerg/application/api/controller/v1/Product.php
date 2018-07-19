@@ -16,7 +16,7 @@ use app\lib\exception\ProductException;
 
 class Product
 {
-    public function getRecengt($count=15){
+    public function getRecent($count=15){
         (new Count())->goCheck();
         $products = ProductModexl::getMostRecent($count);
         if ($products->isEmpty()){
