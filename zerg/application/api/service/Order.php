@@ -41,12 +41,12 @@ class Order
 
         //开始创建订单
         $orderSnap =$this->snapOrder($status);
-        $order = $this->createOreder($orderSnap);
+        $order = $this->createOrder($orderSnap);
         $order['pass'] = true;
         return $order;
     }
 
-    private function createOreder($snap){
+    private function createOrder($snap){
         Db::startTrans();
         try{
             $orderNo = $this->makeOrderNo();
@@ -67,7 +67,7 @@ class Order
                 $p['order_id'] = $orderID;
             }
             $orderProduct = new OrderProduct();
-            $orderProduct->save($this->oProducts);
+            $orderProduct->saveAll($ceshi = $this->oProducts);
             Db::commit();
             return [
                 'order_no' => $orderNo,
@@ -123,6 +123,15 @@ class Order
             ]);
         }
         return $userAddress->toArray();
+    }
+
+    //通过orderID检测库存
+    public function checkOrderStock($orderID){
+        $oProducts = OrderProduct::where('order_id','=',$orderID)->select();
+        $this->oProducts = $oProducts;
+        $this->products = $this->getProductsByOrder($oProducts);
+        $status = $this->getOrderStatus();
+        return $status;
     }
 
     //获取订单的真实状态
