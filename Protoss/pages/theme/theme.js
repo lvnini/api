@@ -35,5 +35,14 @@ Page({
         themeInfo: data
       });
     });
-  }
+  },
+
+  onProductsItemTap: function (event) {
+    var id = theme.getDataSet(event, 'id');
+    wx.navigateTo({
+      url: '../product/product?id=' + id,
+    });
+  },
+
+
 })
