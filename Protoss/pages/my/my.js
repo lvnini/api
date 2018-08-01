@@ -33,7 +33,6 @@ Page({
             that.setData({
                 userInfo:data
             });
-
         });
 
         this._getOrders();
@@ -87,11 +86,11 @@ Page({
         var that=this;
         order.getOrders(this.data.pageIndex,(res)=>{
           var data = res.data.data;
-          // console.log(data.length);
+          // console.log(data);
             that.setData({
                 loadingHidden: true
             });
-            if(data.length>0) {
+          if (data) {
               that.data.orderArr.push.apply(that.data.orderArr, res.data.data);  //数组合并
                 that.setData({
                     orderArr: that.data.orderArr

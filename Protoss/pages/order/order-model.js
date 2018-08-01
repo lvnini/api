@@ -68,7 +68,7 @@ class Order extends Base{
     getOrders(pageIndex,callback){
         var allParams = {
             url: 'order/by_user',
-            data:{page:pageIndex},
+          data: { page: pageIndex, size:3},
             type:'get',
             sCallback: function (data) {
                 callback && callback(data);  //1 未支付  2，已支付  3，已发货，4已支付，但库存不足

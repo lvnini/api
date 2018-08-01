@@ -15,8 +15,8 @@ class My extends Base{
             success: function () {
                 wx.getUserInfo({
                     success: function (res) {
+                      console.log(res);
                         typeof cb == "function" && cb(res.userInfo);
-
                         //将用户昵称 提交到服务器
                         if(!that.onPay) {
                             that._updateUserInfo(res.userInfo);
