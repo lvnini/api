@@ -9,6 +9,8 @@
 namespace app\api\service;
 
 
+use think\Exception;
+
 class WxMessage
 {
     private $sendUrl = "https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?" .

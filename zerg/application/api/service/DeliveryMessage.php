@@ -9,9 +9,10 @@
 namespace app\api\service;
 
 
+use app\api\model\User;
 use app\lib\exception\OrerException;
 
-class DeliveryMessage extends WxNotify
+class DeliveryMessage extends WxMessage
 {
     const DELIVERY_MSG_ID ='你的模板ID';// 小程序模板消息ID号
 

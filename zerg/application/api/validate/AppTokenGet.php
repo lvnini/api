@@ -12,7 +12,7 @@ namespace app\api\validate;
 class AppTokenGet extends BaseValidate
 {
     protected $rule = [
-        'as' =>'require|isNotEmpty',
+        'ac' =>'require|isNotEmpty',
         'se' => 'require|isNotEmpty',
     ];
 }

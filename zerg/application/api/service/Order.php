@@ -220,8 +220,8 @@ class Order
         if (!$order) {
             throw new OrerException();
         }
-        if ($order->status != OrderStatusEnum::PAID) {
-            throw new OrderException([
+        if ($order->status != OrderStatusEnum::PID) {
+            throw new OrerException([
                 'msg' => '还没付款呢，想干嘛？或者你已经更新过订单了，不要再刷了',
                 'errorCode' => 80002,
                 'code' => 403
